@@ -67,3 +67,6 @@
 (add-to-list 'load-path "~/.emacs.d/markdown-mode")
 (require 'markdown-mode)
 (add-to-list 'auto-mode-alist '("\\.mkd\\'" . markdown-mode))
+
+(add-to-list 'load-path "~/.emacs.d/slim-mode")
+(require 'slim-mode)
