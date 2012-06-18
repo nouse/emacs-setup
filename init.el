@@ -62,3 +62,8 @@
 ;; rbenv
 (setenv "PATH" (concat (getenv "HOME") "/.rbenv/shims:" (getenv "PATH")))
 (setq exec-path (cons (concat (getenv "HOME") "/.rbenv/shims") exec-path))
+
+;; markdown-mode
+(add-to-list 'load-path "~/.emacs.d/markdown-mode")
+(require 'markdown-mode)
+(add-to-list 'auto-mode-alist '("\\.mkd\\'" . markdown-mode))
