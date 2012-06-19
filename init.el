@@ -69,7 +69,11 @@
 (require 'markdown-mode)
 (add-to-list 'auto-mode-alist '("\\.mkd\\'" . markdown-mode))
 
-(setq custom-load-paths (list "slim-mode" "rinari" "rhtml-mode" "markdown-mode" "ruby-electric" "flymake-ruby"))
+;; (dolist (path (list "slim-mode" "rinari" "rhtml-mode" "markdown-mode" "ruby-electric" "flymake-ruby"))
+;;   (message (concatenate 'string "~/.emacs.d/" path ))
+;;   (add-to-list 'load-path (concat "~/.emacs.d/" path ))
+;;   (require (make-symbol path))
+;;   )
 
 (add-to-list 'load-path "~/.emacs.d/slim-mode")
 (require 'slim-mode)
