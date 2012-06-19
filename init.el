@@ -50,6 +50,7 @@
 (defun eshell/emacs (file) (find-file file))
 (defun eshell/vim (file) (find-file file))
 
+(package-initialize)
 ;; evil
 (add-to-list 'load-path "~/.emacs.d/evil")
 (setq evil-shift-width 2)
@@ -87,3 +88,7 @@
 (add-to-list 'load-path "~/.emacs.d/flymake-ruby")
 (require 'flymake-ruby)
 (add-hook 'ruby-mode-hook (lambda () (flymake-ruby-load)))
+
+;; aliases
+(defalias 'dtw 'delete-trailing-whitespace)
+(defalias 'rb 'revert-buffer)
