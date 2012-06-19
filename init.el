@@ -68,5 +68,22 @@
 (require 'markdown-mode)
 (add-to-list 'auto-mode-alist '("\\.mkd\\'" . markdown-mode))
 
+(setq custom-load-paths (list "slim-mode" "rinari" "rhtml-mode" "markdown-mode" "ruby-electric" "flymake-ruby"))
+
 (add-to-list 'load-path "~/.emacs.d/slim-mode")
 (require 'slim-mode)
+
+;; rinari
+(add-to-list 'load-path "~/.emacs.d/rinari")
+(require 'rinari)
+;; rhtml-mode
+(add-to-list 'load-path "~/.emacs.d/rhtml")
+(require 'rhtml-mode)
+(add-hook 'rhtml-mode-hook (lambda () (rinari-launch)))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . rhtml-mode))
+
+(add-to-list 'load-path "~/.emacs.d/ruby-electric")
+(require 'ruby-electric)
+(add-to-list 'load-path "~/.emacs.d/flymake-ruby")
+(require 'flymake-ruby)
+(add-hook 'ruby-mode-hook (lambda () (flymake-ruby-load)))
