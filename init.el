@@ -10,11 +10,13 @@
  '(js2-basic-offset 2))
 
 ;; UI
-(cond
-  ((fboundp 'load-theme) (load-theme 'tango-dark) )
-)
-(tool-bar-mode 0)
-(scroll-bar-mode 0)
+(when (> emacs-major-version 23)
+  (load-theme 'tango-dark))
+(when window-system
+  (tool-bar-mode 0)
+  (scroll-bar-mode 0))
+(unless (eq window-system 'ns)
+  (menu-bar-mode 0))
 
 ;; no backup and auto save
 (setq make-backup-files nil)
@@ -93,6 +95,17 @@
 (require 'flymake-ruby)
 (add-hook 'ruby-mode-hook (lambda () (flymake-ruby-load)))
 
+;; OS X only
+(when (eq system-type 'darwin)
+      (setenv "PATH" (concat (getenv "HOME") "/Library/Haskell/bin:" (getenv "PATH")))
+      (setq exec-path (cons (concat (getenv "HOME") "/Library/Haskell/bin") exec-path))
+      (load "~/.emacs.d/haskell-mode/haskell-site-file")
+      (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
+      (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+      (add-to-list 'load-path "~/.emacs.d/ghc-mod")
+      (autoload 'ghc-init "ghc" nil t)
+      (add-hook 'haskell-mode-hook (lambda () (ghc-init) (flymake-mode)))
+      )
 ;; aliases
 (defalias 'dtw 'delete-trailing-whitespace)
 (defalias 'rb 'revert-buffer)
