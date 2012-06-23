@@ -108,4 +108,6 @@
       )
 ;; aliases
 (defalias 'dtw 'delete-trailing-whitespace)
-(defalias 'rb 'revert-buffer)
+
+;; auto revert
+(global-auto-revert-mode t)
