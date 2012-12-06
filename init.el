@@ -91,6 +91,8 @@
 
 (add-to-list 'load-path "~/.emacs.d/ruby-electric")
 (require 'ruby-electric)
+(add-to-list 'load-path "~/.emacs.d/flymake-easy")
+(require 'flymake-easy)
 (add-to-list 'load-path "~/.emacs.d/flymake-ruby")
 (require 'flymake-ruby)
 (add-hook 'ruby-mode-hook (lambda () (flymake-ruby-load)))

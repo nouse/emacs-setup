@@ -31,3 +31,14 @@ fi
 if [ ! -d "flymake-ruby" ] ; then
   git clone https://github.com/purcell/flymake-ruby.git
 fi
+
+if [ ! -d "flymake-easy" ] ; then
+  git clone https://github.com/purcell/flymake-easy.git
+fi
+
+for repo in evil markdown-mode slim-mode haskell-mode rinari rhtml flymake-ruby flymake-easy
+do
+  cd $repo
+  git pull
+  cd ..
+done
