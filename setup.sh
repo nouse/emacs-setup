@@ -9,7 +9,7 @@ if [ ! -d "markdown-mode" ] ; then
 fi
 
 if [ ! -d "slim-mode" ] ; then
-  git clone https://github.com/minad/emacs-slim.git slim-mode
+  git clone https://github.com/slim-template/emacs-slim slim-mode
 fi
 
 if [ ! -d "haskell-mode" ] ; then
