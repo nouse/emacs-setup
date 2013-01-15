@@ -4,8 +4,7 @@
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
  '(inhibit-startup-screen t)
- '(initial-scratch-message nil)
-
+ '(initial-scratch-message nil))
 ;; UI
 (when (> emacs-major-version 23)
   (load-theme 'tango-dark))
