@@ -39,6 +39,7 @@ fi
 for repo in evil markdown-mode slim-mode haskell-mode rinari rhtml flymake-ruby flymake-easy
 do
   cd $repo
+  git reset --hard
   git pull
   cd ..
 done

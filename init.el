@@ -3,11 +3,8 @@
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
- '(LaTeX-command "xelatex")
- '(TeX-command "tex")
  '(inhibit-startup-screen t)
  '(initial-scratch-message nil)
- '(js2-basic-offset 2))
 
 ;; UI
 (when (> emacs-major-version 23)
