@@ -74,6 +74,7 @@
 ;;   )
 
 (add-to-list 'load-path "~/.emacs.d/slim-mode")
+(setq slim-backspace-backdents-nesting nil)
 (require 'slim-mode)
 
 ;; rinari
