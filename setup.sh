@@ -36,6 +36,10 @@ if [ ! -d "flymake-easy" ] ; then
   git clone https://github.com/purcell/flymake-easy.git
 fi
 
+if [ ! -d "coffee-mode" ]; then
+  git clone https://github.com/defunkt/coffee-mode.git
+fi
+
 for repo in evil markdown-mode slim-mode haskell-mode rinari rhtml flymake-ruby flymake-easy
 do
   cd $repo
