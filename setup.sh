@@ -46,5 +46,6 @@ do
   echo "updating $repo"
   git reset --hard
   git pull
+  [ -f Makefile ] && make
   cd ..
 done
