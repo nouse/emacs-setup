@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if [ ! -d "evil" ] ; then
-  git clone git://gitorious.org/evil/evil.git
+  git clone git://gitorious.org/evil/evil.git -b stable-1.0
 fi
 
 if [ ! -d "markdown-mode" ] ; then
