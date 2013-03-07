@@ -1,5 +1,7 @@
 #!/bin/sh
 
+cd "$(dirname $0)"
+
 if [ ! -d "evil" ] ; then
   git clone git://gitorious.org/evil/evil.git -b stable-1.0
 fi
