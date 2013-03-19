@@ -108,7 +108,7 @@
       )
 ;; aliases
 (defalias 'dtw 'delete-trailing-whitespace)
-
+(server-start)
 ;; auto revert
 (global-auto-revert-mode t)
 (custom-set-faces
