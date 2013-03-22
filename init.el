@@ -5,11 +5,12 @@
  ;; If there is more than one, they won't work right.
  '(inhibit-startup-screen t)
  '(initial-scratch-message nil)
- '(safe-local-variable-values (quote ((encoding . utf-8) (ruby-compilation-executable . "ruby") (ruby-compilation-executable . "ruby1.8") (ruby-compilation-executable . "ruby1.9") (ruby-compilation-executable . "rbx") (ruby-compilation-executable . "jruby")))))
+)
 ;; UI
 (when (> emacs-major-version 23)
   (load-theme 'tango-dark))
 (when window-system
+  (server-start)
   (tool-bar-mode 0)
   (scroll-bar-mode 0))
 (unless (eq window-system 'ns)
@@ -108,7 +109,6 @@
       )
 ;; aliases
 (defalias 'dtw 'delete-trailing-whitespace)
-(server-start)
 ;; auto revert
 (global-auto-revert-mode t)
 (custom-set-faces
