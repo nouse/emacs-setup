@@ -74,17 +74,6 @@
 (require 'flycheck)
 (define-key flycheck-mode-map (kbd "C-c b") 'flycheck-buffer)
 (add-hook 'ruby-mode-hook 'flycheck-mode)
-;; OS X only
-(when (eq system-type 'darwin)
-      (setenv "PATH" (concat (getenv "HOME") "/Library/Haskell/bin:" (getenv "PATH")))
-      (setq exec-path (cons (concat (getenv "HOME") "/Library/Haskell/bin") exec-path))
-      (load "~/.emacs.d/haskell-mode/haskell-site-file")
-      (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
-      (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
-      (add-to-list 'load-path "~/.emacs.d/ghc-mod")
-      (autoload 'ghc-init "ghc" nil t)
-      (add-hook 'haskell-mode-hook (lambda () (ghc-init) (flymake-mode)))
-      )
 ;; aliases
 (defalias 'dtw 'delete-trailing-whitespace)
 ;; auto revert
