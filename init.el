@@ -50,9 +50,13 @@
 (defun eshell/emacs (file) (find-file file))
 (defun eshell/vim (file) (find-file file))
 
+(add-to-list 'load-path "~/.emacs.d/lisp")
+
+(when (<= emacs-major-version 23)
+  (require 'package)
+)
 (package-initialize)
 ;; evil
-(add-to-list 'load-path "~/.emacs.d/evil")
 (setq evil-shift-width 2)
 (setq evil-want-C-u-scroll t)
 (require 'evil)
@@ -64,38 +68,12 @@
 (setenv "PATH" (concat (getenv "HOME") "/.rbenv/shims:" (getenv "PATH")))
 (setq exec-path (cons (concat (getenv "HOME") "/.rbenv/shims") exec-path))
 
-;; markdown-mode
-(add-to-list 'load-path "~/.emacs.d/markdown-mode")
-(require 'markdown-mode)
-(add-to-list 'auto-mode-alist '("\\.mkd\\'" . markdown-mode))
-
-;; (dolist (path (list "slim-mode" "rinari" "rhtml-mode" "markdown-mode" "ruby-electric" "flymake-ruby"))
-;;   (message (concatenate 'string "~/.emacs.d/" path ))
-;;   (add-to-list 'load-path (concat "~/.emacs.d/" path ))
-;;   (require (make-symbol path))
-;;   )
-
-(add-to-list 'load-path "~/.emacs.d/slim-mode")
-(setq slim-backspace-backdents-nesting nil)
-(require 'slim-mode)
-
-;; rinari
-(add-to-list 'load-path "~/.emacs.d/rinari")
-(require 'rinari)
-;; rhtml-mode
-(add-to-list 'load-path "~/.emacs.d/rhtml")
-(require 'rhtml-mode)
-(add-hook 'rhtml-mode-hook (lambda () (rinari-launch)))
-(add-to-list 'auto-mode-alist '("\\.erb\\'" . rhtml-mode))
-
-(add-to-list 'load-path "~/.emacs.d/ruby-electric")
+(require 'inf-ruby)
 (require 'ruby-electric)
-(add-to-list 'load-path "~/.emacs.d/flymake-easy")
-(require 'flymake-easy)
-(add-to-list 'load-path "~/.emacs.d/flymake-ruby")
-(require 'flymake-ruby)
-(add-hook 'ruby-mode-hook (lambda () (flymake-ruby-load)))
 
+(require 'flycheck)
+(define-key flycheck-mode-map (kbd "C-c b") 'flycheck-buffer)
+(add-hook 'ruby-mode-hook 'flycheck-mode)
 ;; OS X only
 (when (eq system-type 'darwin)
       (setenv "PATH" (concat (getenv "HOME") "/Library/Haskell/bin:" (getenv "PATH")))
