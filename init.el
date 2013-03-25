@@ -71,9 +71,11 @@
 (require 'inf-ruby)
 (require 'ruby-electric)
 
-(require 'flycheck)
-(define-key flycheck-mode-map (kbd "C-c b") 'flycheck-buffer)
-(add-hook 'ruby-mode-hook 'flycheck-mode)
+(when (> emacs-major-version 23)
+  (require 'flycheck)
+  (define-key flycheck-mode-map (kbd "C-c b") 'flycheck-buffer)
+  (add-hook 'ruby-mode-hook 'flycheck-mode)
+)
 ;; aliases
 (defalias 'dtw 'delete-trailing-whitespace)
 ;; auto revert
