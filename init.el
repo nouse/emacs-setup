@@ -71,10 +71,15 @@
 (require 'inf-ruby)
 (require 'ruby-electric)
 
-(when (> emacs-major-version 23)
+(defun load-flycheck ()
+  "load flycheck"
   (require 'flycheck)
   (define-key flycheck-mode-map (kbd "C-c b") 'flycheck-buffer)
-  (add-hook 'ruby-mode-hook 'flycheck-mode)
+  (add-hook 'ruby-mode-hook 'flycheck-mode))
+(if (> emacs-major-version 23)
+  (load-flycheck)
+  (require 'flymake-ruby)
+  (add-hook 'ruby-mode-hook 'flymake-ruby-mode)
 )
 ;; aliases
 (defalias 'dtw 'delete-trailing-whitespace)
