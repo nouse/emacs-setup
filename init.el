@@ -56,6 +56,7 @@
   (require 'package)
 )
 (package-initialize)
+
 ;; evil
 (setq evil-shift-width 2)
 (setq evil-want-C-u-scroll t)
@@ -68,8 +69,13 @@
 (setenv "PATH" (concat (getenv "HOME") "/.rbenv/shims:" (getenv "PATH")))
 (setq exec-path (cons (concat (getenv "HOME") "/.rbenv/shims") exec-path))
 
-(require 'inf-ruby)
-(require 'ruby-electric)
+;; inf-ruby
+(autoload 'inf-ruby "inf-ruby" "Run an inferior Ruby process" t)
+(autoload 'inf-ruby-setup-keybindings "inf-ruby" "" t)
+(add-hook 'ruby-mode-hook 'inf-ruby-setup-keybindings)
+;; ruby-electric
+(autoload 'ruby-electric-mode "ruby-electric")
+(add-hook 'ruby-mode-hook 'ruby-electric-mode)
 
 (defun load-flycheck ()
   "load flycheck"
