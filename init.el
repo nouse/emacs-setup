@@ -85,7 +85,7 @@
 (if (> emacs-major-version 23)
   (load-flycheck)
   (require 'flymake-ruby)
-  (add-hook 'ruby-mode-hook 'flymake-ruby-mode)
+  (add-hook 'ruby-mode-hook 'flymake-ruby-load)
 )
 ;; aliases
 (defalias 'dtw 'delete-trailing-whitespace)
