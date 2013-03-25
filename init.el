@@ -71,13 +71,11 @@
 (require 'inf-ruby)
 (require 'ruby-electric)
 
-(defun load-flycheck ()
-  "load flycheck"
-  (require 'flycheck)
-  (define-key flycheck-mode-map (kbd "C-c b") 'flycheck-buffer)
-  (add-hook 'ruby-mode-hook 'flycheck-mode))
 (if (> emacs-major-version 23)
-  (load-flycheck)
+  (lambda ()
+    (require 'flycheck)
+    (define-key flycheck-mode-map (kbd "C-c b") 'flycheck-buffer)
+    (add-hook 'ruby-mode-hook 'flycheck-mode))
   (require 'flymake-ruby)
   (add-hook 'ruby-mode-hook 'flymake-ruby-mode)
 )
