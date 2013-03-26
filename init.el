@@ -65,10 +65,6 @@
 (define-key evil-normal-state-map " " 'evil-ex)
 (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
 
-;; rbenv
-(setenv "PATH" (concat (getenv "HOME") "/.rbenv/shims:" (getenv "PATH")))
-(setq exec-path (cons (concat (getenv "HOME") "/.rbenv/shims") exec-path))
-
 ;; inf-ruby
 (autoload 'inf-ruby "inf-ruby" "Run an inferior Ruby process" t)
 (autoload 'inf-ruby-setup-keybindings "inf-ruby" "" t)
