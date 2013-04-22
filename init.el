@@ -94,5 +94,6 @@
  ;; If there is more than one, they won't work right.
  )
 
-;; load paths
-(add-to-list 'load-path "/usr/local/bin")
+;; paths
+(setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
+(setq exec-path (append '("/usr/local/bin") exec-path))
