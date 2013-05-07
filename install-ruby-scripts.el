@@ -4,7 +4,3 @@
   (print "install inf-ruby")
   (package-install 'inf-ruby)
 )
-(unless (package-installed-p 'ruby-electric)
-  (print "install ruby-electric")
-  (package-install 'ruby-electric)
-)
