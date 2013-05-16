@@ -4,3 +4,5 @@
   (print "install inf-ruby")
   (package-install 'inf-ruby)
 )
+(print "install ruby-electric")
+(url-copy-file "https://raw.github.com/qoobaa/ruby-electric/master/ruby-electric.el" "~/.emacs.d/lisp/ruby-electric.el" t)
